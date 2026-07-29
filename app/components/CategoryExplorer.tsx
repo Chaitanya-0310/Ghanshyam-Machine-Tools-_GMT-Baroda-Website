@@ -1,21 +1,67 @@
+import { ArrowUpRight } from "lucide-react";
 import { categories } from "../lib/categories";
+
+function rangeLabel(index: number) {
+  if (index === 0) return "Lead category";
+  if (index < 5) return "Core machine tools";
+  return "Supporting equipment";
+}
 
 export function CategoryExplorer() {
   return (
     <section id="products" className="gmt-catalogue" aria-labelledby="catalogue-title">
-      <div className="gmt-catalogue__intro">
-        <p>PRODUCT UNIVERSE</p>
-        <h2 id="catalogue-title">Find the right starting point.</h2>
-        <span>Explore the category, then tell us the make, model, capacity, or application you need.</span>
+      <div className="gmt-catalogue__intro" data-reveal>
+        <div>
+          <p className="gmt-section-label">Product range</p>
+          <h2 id="catalogue-title">One requirement.<br />The range around it.</h2>
+        </div>
+        <div className="gmt-catalogue__summary">
+          <strong>10</strong>
+          <span>buyer-focused categories</span>
+          <p>Begin with the machine, then account for the tooling, workholding, and supporting equipment the job calls for.</p>
+        </div>
       </div>
+
+      <div data-reveal-line className="gmt-section-rule" />
+
+      <div className="gmt-range-axis" data-reveal aria-label="Product range structure">
+        <div className="gmt-range-axis__segment gmt-range-axis__segment--lead">
+          <span>01</span>
+          <strong>Lead category</strong>
+          <small>Lathe machines</small>
+        </div>
+        <div className="gmt-range-axis__segment gmt-range-axis__segment--core">
+          <span>02—05</span>
+          <strong>Core machine tools</strong>
+          <small>Milling · drilling · grinding · gear cutting</small>
+        </div>
+        <div className="gmt-range-axis__segment gmt-range-axis__segment--support">
+          <span>06—10</span>
+          <strong>Supporting the job</strong>
+          <small>Workholding · power · hydraulic · workpieces</small>
+        </div>
+      </div>
+
       <div className="gmt-catalogue__grid">
         {categories.map((category, index) => (
-          <a key={category.slug} className={`gmt-category-card gmt-category-card--${index + 1}`} href={`/machine-tools/${category.slug}`}>
-            <img src={category.image} alt={category.name} width="1536" height="1024" />
-            <div>
-              <span>Explore category</span>
+          <a
+            key={category.slug}
+            data-reveal-card
+            className={`gmt-category-card gmt-category-card--${index + 1}`}
+            href={`/machine-tools/${category.slug}`}
+          >
+            <div className="gmt-category-card__media">
+              <img src={category.image} alt={category.name} width="1536" height="1024" loading="lazy" />
+              <span className="gmt-category-card__index">{String(index + 1).padStart(2, "0")}</span>
+            </div>
+            <div className="gmt-category-card__content">
+              <p>{rangeLabel(index)}</p>
               <h3>{category.name}</h3>
-              <p>{category.description}</p>
+              <span>{category.description}</span>
+              <strong>
+                Explore range
+                <ArrowUpRight aria-hidden="true" size={17} strokeWidth={1.8} />
+              </strong>
             </div>
           </a>
         ))}
