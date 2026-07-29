@@ -2,6 +2,7 @@
 
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { ArrowRight } from "lucide-react";
 import { useRef } from "react";
 
 export function HeroIntro() {
@@ -51,8 +52,14 @@ export function HeroIntro() {
         Practical sourcing guidance for lathes, machine tools, tooling, and the equipment that supports the work.
       </p>
       <div data-hero-item className="gmt-hero__actions">
-        <a className="gmt-hero__primary" href="#enquire">Help me choose</a>
-        <a className="gmt-hero__secondary" href="#products">View the range</a>
+        <a className="gmt-hero__primary" href="#enquire">
+          <span>Help Me Choose</span>
+          <ArrowRight aria-hidden="true" size={17} strokeWidth={2} />
+        </a>
+        <a className="gmt-hero__secondary" href="#products">
+          <span>View the Range</span>
+          <ArrowRight aria-hidden="true" size={17} strokeWidth={2} />
+        </a>
       </div>
       <dl data-hero-item className="gmt-hero__facts">
         <div>

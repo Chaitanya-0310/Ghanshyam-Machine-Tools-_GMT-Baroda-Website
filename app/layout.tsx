@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { headers } from "next/headers";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -30,6 +30,10 @@ const plexMono = localFont({
     { path: "../public/fonts/IBMPlexMono-Bold.ttf", weight: "700" },
   ],
 });
+
+export const viewport: Viewport = {
+  themeColor: "#f3f6f8",
+};
 
 export async function generateMetadata(): Promise<Metadata> {
   const requestHeaders = await headers();
@@ -71,6 +75,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${bricolage.variable} ${instrument.variable} ${plexMono.variable}`}>
       <body>
+        <a className="gmt-skip-link" href="#main">Skip to Content</a>
         <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>

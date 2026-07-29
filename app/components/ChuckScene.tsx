@@ -17,7 +17,7 @@ function LatheChuck({
   const group = useRef<THREE.Group>(null);
   const { scene } = useGLTF("/lathe_chuck.glb");
 
-  useFrame((state) => {
+  useFrame((_state, delta) => {
     if (!group.current) return;
     const progress = scrollProgress.current ?? 0;
     const rotationTarget = 0.1 + progress * 0.78;
@@ -26,11 +26,11 @@ function LatheChuck({
     const scaleTarget = 0.78 + progress * 0.5;
     const damping = animate ? 4.2 : 12;
 
-    group.current.rotation.z = THREE.MathUtils.damp(group.current.rotation.z, rotationTarget, damping, state.clock.getDelta());
-    group.current.rotation.y = THREE.MathUtils.damp(group.current.rotation.y, -0.22 + progress * 0.2, damping, state.clock.getDelta());
-    group.current.position.x = THREE.MathUtils.damp(group.current.position.x, xTarget, damping, state.clock.getDelta());
-    group.current.position.y = THREE.MathUtils.damp(group.current.position.y, yTarget, damping, state.clock.getDelta());
-    const scale = THREE.MathUtils.damp(group.current.scale.x, scaleTarget, damping, state.clock.getDelta());
+    group.current.rotation.z = THREE.MathUtils.damp(group.current.rotation.z, rotationTarget, damping, delta);
+    group.current.rotation.y = THREE.MathUtils.damp(group.current.rotation.y, -0.22 + progress * 0.2, damping, delta);
+    group.current.position.x = THREE.MathUtils.damp(group.current.position.x, xTarget, damping, delta);
+    group.current.position.y = THREE.MathUtils.damp(group.current.position.y, yTarget, damping, delta);
+    const scale = THREE.MathUtils.damp(group.current.scale.x, scaleTarget, damping, delta);
     group.current.scale.setScalar(scale);
   });
 

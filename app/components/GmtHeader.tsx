@@ -46,7 +46,7 @@ export function GmtHeader() {
       </button>
 
       <Link className="gmt-header__cta" href="/#enquire">
-        Start an enquiry
+        <span>Start an Enquiry</span>
         <ArrowUpRight size={15} aria-hidden="true" />
       </Link>
 
@@ -60,7 +60,7 @@ export function GmtHeader() {
             {item.label}
           </Link>
         ))}
-        <Link href="/#enquire" onClick={closeMenu}>Start an enquiry</Link>
+        <Link href="/#enquire" onClick={closeMenu}>Start an Enquiry</Link>
       </nav>
     </header>
   );

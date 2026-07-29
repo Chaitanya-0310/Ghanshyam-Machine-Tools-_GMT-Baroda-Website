@@ -1,5 +1,20 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
+import {
+  Field,
+  FieldDescription,
+  FieldGroup,
+  FieldLabel,
+} from "@/components/ui/field";
+import { Input } from "@/components/ui/input";
+import {
+  NativeSelect,
+  NativeSelectOption,
+} from "@/components/ui/native-select";
+import { Separator } from "@/components/ui/separator";
+import { Textarea } from "@/components/ui/textarea";
+import { ArrowUpRight } from "lucide-react";
 import { FormEvent, useState } from "react";
 import { categories } from "../lib/categories";
 
@@ -59,60 +74,66 @@ export function QuoteEnquiry() {
           <span>Enquiry form</span>
           <strong>Required fields *</strong>
         </div>
+        <Separator />
 
-        <div className="gmt-enquiry__field-grid">
-          <label>
-            Your name <em>*</em>
-            <input name="name" autoComplete="name" required placeholder="Full name" />
-          </label>
-          <label>
-            Company / workshop
-            <input name="company" autoComplete="organization" placeholder="Business name" />
-          </label>
-          <label>
-            Phone <em>*</em>
-            <input name="phone" type="tel" autoComplete="tel" required placeholder="+91" />
-          </label>
-          <label>
-            Work email <em>*</em>
-            <input name="email" type="email" autoComplete="email" required placeholder="name@company.com" />
-          </label>
-        </div>
+        <FieldGroup className="gmt-enquiry__field-grid">
+          <Field>
+            <FieldLabel htmlFor="enquiry-name">Your name <em>*</em></FieldLabel>
+            <Input id="enquiry-name" name="name" autoComplete="name" required placeholder="Example: Chaitanya Panchal…" />
+          </Field>
+          <Field>
+            <FieldLabel htmlFor="enquiry-company">Company / workshop</FieldLabel>
+            <Input id="enquiry-company" name="company" autoComplete="organization" placeholder="Example: Precision Works…" />
+          </Field>
+          <Field>
+            <FieldLabel htmlFor="enquiry-phone">Phone <em>*</em></FieldLabel>
+            <Input id="enquiry-phone" name="phone" type="tel" inputMode="tel" autoComplete="tel" required placeholder="Example: +91 98765 43210…" />
+          </Field>
+          <Field>
+            <FieldLabel htmlFor="enquiry-email">Work email <em>*</em></FieldLabel>
+            <Input id="enquiry-email" name="email" type="email" inputMode="email" autoComplete="email" spellCheck={false} required placeholder="Example: name@company.com…" />
+          </Field>
+        </FieldGroup>
 
-        <div className="gmt-enquiry__field-grid">
-          <label>
-            I need help with <em>*</em>
-            <select name="requestType" defaultValue="help-me-choose" required>
-              <option value="help-me-choose">Choosing a suitable requirement</option>
-              <option value="quote">A quote for a known product</option>
-              <option value="accessories">Tooling, accessories, or workholding</option>
-              <option value="complete">A machine and supporting requirement</option>
-            </select>
-          </label>
-          <label>
-            Starting category <em>*</em>
-            <select name="category" defaultValue="" required>
-              <option value="" disabled>Select a product category</option>
+        <FieldGroup className="gmt-enquiry__field-grid">
+          <Field>
+            <FieldLabel htmlFor="enquiry-type">I need help with <em>*</em></FieldLabel>
+            <NativeSelect className="gmt-enquiry__select" id="enquiry-type" name="requestType" defaultValue="help-me-choose" required>
+              <NativeSelectOption value="help-me-choose">Choosing a suitable requirement</NativeSelectOption>
+              <NativeSelectOption value="quote">A quote for a known product</NativeSelectOption>
+              <NativeSelectOption value="accessories">Tooling, accessories, or workholding</NativeSelectOption>
+              <NativeSelectOption value="complete">A machine and supporting requirement</NativeSelectOption>
+            </NativeSelect>
+          </Field>
+          <Field>
+            <FieldLabel htmlFor="enquiry-category">Starting category <em>*</em></FieldLabel>
+            <NativeSelect className="gmt-enquiry__select" id="enquiry-category" name="category" defaultValue="" required>
+              <NativeSelectOption value="" disabled>Select a product category</NativeSelectOption>
               {categories.map((category) => (
-                <option key={category.slug} value={category.name}>{category.name}</option>
+                <NativeSelectOption key={category.slug} value={category.name}>{category.name}</NativeSelectOption>
               ))}
-            </select>
-          </label>
-        </div>
+            </NativeSelect>
+          </Field>
+        </FieldGroup>
 
-        <label>
-          Tell us about the job <em>*</em>
-          <textarea
+        <Field>
+          <FieldLabel htmlFor="enquiry-requirement">Tell us about the job <em>*</em></FieldLabel>
+          <Textarea
+            id="enquiry-requirement"
             name="requirement"
             rows={5}
             required
-            placeholder="Material, workpiece size, application, capacity, preferred make or model, budget context, and compatibility details."
+            placeholder="Example: Material, workpiece size, application, capacity, preferred make or model, budget context, and compatibility details…"
           />
-        </label>
+          <FieldDescription>Include any known make, model, capacity, or compatibility details.</FieldDescription>
+        </Field>
 
         <div className="gmt-enquiry__footer">
           <p>This prepares an email for you to review before sending.</p>
-          <button type="submit">Prepare enquiry</button>
+          <Button type="submit" variant="gmt" size="lg">
+            <span>Prepare Enquiry</span>
+            <ArrowUpRight data-icon="inline-end" aria-hidden="true" strokeWidth={2} />
+          </Button>
         </div>
         <p className="gmt-enquiry__notice" role="status" aria-live="polite">{notice}</p>
       </form>

@@ -61,6 +61,9 @@
 - Modern UI system: the website uses a precision-sourcing-studio composition—a floating translucent header, a large asymmetrical product-study hero, an indexed editorial category grid, and a single graphite Requirement Bench. Surfaces use cool steel white, graphite, GMT blue, and GMT red with 18–28px structural radii rather than small legacy cards or pill-heavy controls.
 - Homepage signature: the supplied lathe chuck is cropped as an oversized interactive product object inside a calibrated inspection field. Buyer facts and product-view labels sit on a disciplined information rail around it.
 - Calibrated Momentum system: the homepage now uses a functional calibration axis to express the actual buyer sequence (Define, Match, Enquire) and the verified product hierarchy (lead category, core machine tools, supporting equipment). Measurement marks and the GMT cut carry structure rather than decoration; red is reserved for the enquiry decision point.
+- Signal colour expansion: cyan and safety-lime now supplement GMT blue and red only inside sourcing paths, orbit geometry, category grouping, and responsive interaction states. They are functional industrial signals, not replacement brand colours or full-page themes.
+- Range explorer refinement: the category grid now includes an accessible All / Lead / Core / Supporting filter built from the shared shadcn component layer. Cards retain the editorial asymmetry, use full semantic card composition, and show range grouping through restrained status badges.
+- Enquiry component system: the Requirement Bench form now uses the shared shadcn field, input, native-select, textarea, separator, and button primitives while preserving the established GMT visual language and native mobile form behaviour.
 
 ## Motion plan
 
@@ -72,6 +75,9 @@
 - Hero 3D interaction: within the desktop hero, the supplied chuck moves closer, rotates, and shifts subtly as the visitor scrolls through the section. It can be inspected by pointer drag; zoom and pan controls are deliberately disabled. Reduced-motion visitors receive a fixed composition and no drag cue.
 - Motion refinement: the hero copy now begins only after the GMT loader has cleared. Product categories reveal once on entry, and a deterministic, low-contrast machining-path field adds motion to the sourcing section without competing with buyer content.
 - Page choreography: GSAP ScrollTrigger owns section, rule, and category-card reveals through one React-safe scoped motion shell. The sequence uses transform and opacity only, groups entering cards in small batches, runs once, and is completely bypassed when reduced motion is preferred.
+- Orbit choreography: the How GMT Helps machining field now combines deterministic spiral paths with two counter-rotating inspection rings; a compact related orbit reinforces the ten-category range. Both respond to scroll through transform-only GSAP motion, remain static under reduced motion, and avoid continuous animation when the section is off-screen.
+- Button motion: primary actions use a fast directional colour sweep and arrow displacement on hover or keyboard focus. Motion is interruptible, uses transforms, preserves visible focus, and collapses under reduced-motion preferences.
+- Product inspection response: category cards use a pointer-positioned light inspection pass and a short filter-arrival transition. The effect is decorative, does not change or hide product information, and is removed for reduced-motion visitors.
 
 ## Installed modules and intended use
 
