@@ -67,3 +67,24 @@ test("server-renders product category content", async () => {
   assert.match(html, /Centre lathes/);
   assert.match(html, /Availability is confirmed against the enquiry\./);
 });
+
+test("keeps the chuck assembly clean, centred, and complete before release", async () => {
+  const [page, hero, css] = await Promise.all([
+    readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/components/HeroProduct.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
+  ]);
+
+  assert.match(page, /<\/section>\s*<HeroProduct \/>/);
+  assert.match(hero, /ASSEMBLY_COMPLETE_PROGRESS\s*=\s*0\.86/);
+  assert.match(hero, /frame:\s*FRAME_COUNT\s*-\s*1/);
+  assert.match(hero, /duration:\s*0\.78/);
+  assert.match(hero, /duration:\s*0\.14/);
+  assert.match(hero, /window\.innerHeight\s*\*\s*2\.35/);
+  assert.match(hero, /dataset\.assemblyComplete/);
+  assert.doesNotMatch(hero, /PHASES|Assembly complete|gmt-assembly-rail/);
+  assert.match(css, /\.gmt-product-study__frame/);
+  assert.match(css, /object-fit:\s*contain/);
+  assert.doesNotMatch(css, /\.gmt-assembly-rail|\.gmt-hero__calibration/);
+  assert.match(css, /\[data-assembly-complete="true"\]\s+\.gmt-chuck__fallback/);
+});

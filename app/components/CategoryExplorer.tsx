@@ -11,7 +11,6 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { ArrowUpRight } from "lucide-react";
-import Image from "next/image";
 import { PointerEvent, useState } from "react";
 import { categories } from "../lib/categories";
 import { MachiningField } from "./MachiningField";
@@ -119,12 +118,13 @@ export function CategoryExplorer() {
               data-range={rangeGroup(index)}
             >
               <div className="gmt-category-card__media">
-                <Image
+                <img
                   src={category.image}
                   alt={category.name}
                   width={1536}
                   height={1024}
                   loading="lazy"
+                  decoding="async"
                 />
                 <span className="gmt-category-card__index">{String(index + 1).padStart(2, "0")}</span>
               </div>

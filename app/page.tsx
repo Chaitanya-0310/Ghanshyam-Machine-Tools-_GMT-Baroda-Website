@@ -22,27 +22,9 @@ export default function Home() {
 
       <section className="gmt-hero" aria-labelledby="hero-title">
         <HeroIntro />
-        <div className="gmt-hero__media">
-          <div className="gmt-hero__media-label" aria-hidden="true">
-            <span>Product study</span>
-            <span>Lathe workholding</span>
-          </div>
-          <div className="gmt-hero__calibration" aria-hidden="true">
-            <span />
-            <span />
-            <span />
-            <span />
-            <span />
-          </div>
-          <HeroProduct />
-          <div className="gmt-hero__inspection" aria-hidden="true">
-            <span className="gmt-hero__inspection-line" />
-            <p>Visual reference</p>
-            <strong>Precision workholding</strong>
-            <small>Interactive 3D object</small>
-          </div>
-        </div>
       </section>
+
+      <HeroProduct />
 
       <section id="about" className="gmt-positioning" aria-labelledby="positioning-title">
         <MachiningField />
