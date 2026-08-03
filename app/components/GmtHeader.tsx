@@ -26,6 +26,8 @@ export function GmtHeader() {
         </span>
       </Link>
 
+      <p className="gmt-header__location">GIDC Makarpura <span>·</span> Vadodara</p>
+
       <nav className="gmt-header__nav" aria-label="Primary navigation">
         {navigation.map((item) => (
           <Link key={item.href} href={item.href}>

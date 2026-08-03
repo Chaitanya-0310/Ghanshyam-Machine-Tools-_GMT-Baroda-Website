@@ -46,7 +46,7 @@ export function HeroIntro() {
       </p>
       <h1 data-hero-item id="hero-title">
         Start with the job.
-        <span>Source with clarity.</span>
+        <span>Source machine tools with clarity.</span>
       </h1>
       <p data-hero-item className="gmt-hero__body">
         Practical sourcing guidance for lathes, machine tools, tooling, and the equipment that supports the work.
@@ -61,18 +61,21 @@ export function HeroIntro() {
           <ArrowRight aria-hidden="true" size={17} strokeWidth={2} />
         </a>
       </div>
+      <a data-hero-item className="gmt-hero__known-link" href="#enquire">
+        Already know the category or model? Start a quote brief <span aria-hidden="true">→</span>
+      </a>
       <dl data-hero-item className="gmt-hero__facts">
         <div>
-          <dt>Lead range</dt>
-          <dd>Lathe machines</dd>
-        </div>
-        <div>
-          <dt>Coverage</dt>
-          <dd>Machine to workholding</dd>
-        </div>
-        <div>
           <dt>Local focus</dt>
-          <dd>Vadodara first</dd>
+          <dd>GIDC Makarpura, Vadodara</dd>
+        </div>
+        <div>
+          <dt>Sourcing scope</dt>
+          <dd>Machine · tooling · workholding</dd>
+        </div>
+        <div>
+          <dt>Starting point</dt>
+          <dd>Define the job first</dd>
         </div>
       </dl>
     </div>

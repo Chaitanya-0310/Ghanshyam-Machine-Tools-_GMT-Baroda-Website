@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { CategoryExplorer } from "./components/CategoryExplorer";
+import { FaqSection } from "./components/FaqSection";
 import { GmtFooter } from "./components/GmtFooter";
 import { GmtHeader } from "./components/GmtHeader";
 import { GmtLoader } from "./components/GmtLoader";
 import { HeroIntro } from "./components/HeroIntro";
 import { HeroProduct } from "./components/HeroProduct";
-import { MachiningField } from "./components/MachiningField";
 import { MotionStage } from "./components/MotionStage";
 import { QuoteEnquiry } from "./components/QuoteEnquiry";
 
@@ -26,8 +26,9 @@ export default function Home() {
 
       <HeroProduct />
 
+      <CategoryExplorer />
+
       <section id="about" className="gmt-positioning" aria-labelledby="positioning-title">
-        <MachiningField />
         <div className="gmt-positioning__copy" data-reveal>
           <p className="gmt-section-label">How GMT helps</p>
           <h2 id="positioning-title">Clear sourcing starts with a better-defined job.</h2>
@@ -62,8 +63,8 @@ export default function Home() {
         </div>
       </section>
 
-      <CategoryExplorer />
       <QuoteEnquiry />
+      <FaqSection />
       <GmtFooter />
     </MotionStage>
   );

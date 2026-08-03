@@ -1,6 +1,5 @@
 "use client";
 
-import { Badge } from "@/components/ui/badge";
 import {
   Card,
   CardContent,
@@ -16,12 +15,6 @@ import { categories } from "../lib/categories";
 import { MachiningField } from "./MachiningField";
 
 type RangeFilter = "all" | "lead" | "core" | "support";
-
-function rangeLabel(index: number) {
-  if (index === 0) return "Lead category";
-  if (index < 5) return "Core machine tools";
-  return "Supporting equipment";
-}
 
 function rangeGroup(index: number): Exclude<RangeFilter, "all"> {
   if (index === 0) return "lead";
@@ -67,18 +60,15 @@ export function CategoryExplorer() {
       <div className="gmt-range-axis" data-reveal aria-label="Product range structure">
         <div className="gmt-range-axis__segment gmt-range-axis__segment--lead">
           <span>01</span>
-          <strong>Lead category</strong>
-          <small>Lathe machines</small>
+          <strong>Lathe machines</strong>
         </div>
         <div className="gmt-range-axis__segment gmt-range-axis__segment--core">
           <span>02—05</span>
           <strong>Core machine tools</strong>
-          <small>Milling · drilling · grinding · gear cutting</small>
         </div>
         <div className="gmt-range-axis__segment gmt-range-axis__segment--support">
           <span>06—10</span>
-          <strong>Supporting the job</strong>
-          <small>Workholding · power · hydraulic · workpieces</small>
+          <strong>Supporting equipment</strong>
         </div>
       </div>
 
@@ -129,7 +119,6 @@ export function CategoryExplorer() {
                 <span className="gmt-category-card__index">{String(index + 1).padStart(2, "0")}</span>
               </div>
               <CardHeader className="gmt-category-card__content">
-                <Badge variant="secondary">{rangeLabel(index)}</Badge>
                 <CardTitle>
                   <h3>{category.name}</h3>
                 </CardTitle>
@@ -147,6 +136,10 @@ export function CategoryExplorer() {
           </a>
         ))}
       </div>
+
+      <p className="gmt-catalogue__disclosure" data-reveal>
+        Images indicate the product category only. Ask GMT about current sourcing options for your requirement.
+      </p>
     </section>
   );
 }

@@ -4,21 +4,21 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { SmoothScroll } from "./components/SmoothScroll";
 
-const bricolage = localFont({
-  variable: "--font-bricolage",
+const workSans = localFont({
+  variable: "--font-work-sans",
   display: "swap",
   src: [
-    { path: "../public/fonts/BricolageGrotesque-Regular.ttf", weight: "400" },
-    { path: "../public/fonts/BricolageGrotesque-Bold.ttf", weight: "700" },
+    { path: "../public/fonts/WorkSans-Regular.ttf", weight: "400" },
+    { path: "../public/fonts/WorkSans-Bold.ttf", weight: "700" },
   ],
 });
 
-const instrument = localFont({
-  variable: "--font-instrument",
+const bigShoulders = localFont({
+  variable: "--font-big-shoulders",
   display: "swap",
   src: [
-    { path: "../public/fonts/InstrumentSans-Regular.ttf", weight: "400" },
-    { path: "../public/fonts/InstrumentSans-Bold.ttf", weight: "700" },
+    { path: "../public/fonts/BigShoulders-Regular.ttf", weight: "400" },
+    { path: "../public/fonts/BigShoulders-Bold.ttf", weight: "700" },
   ],
 });
 
@@ -41,8 +41,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const forwardedProtocol = requestHeaders.get("x-forwarded-proto");
   const protocol = forwardedProtocol ?? (host.startsWith("localhost") ? "http" : "https");
   const metadataBase = new URL(`${protocol}://${host}`);
-  const title = "Ghanshyam Machine Tools | Vadodara";
-  const description = "Machine tools and industrial equipment retailer in Vadodara, Gujarat.";
+  const title = "Machine Tools in Vadodara | Ghanshyam Machine Tools";
+  const description = "Find machine tools, tooling, workholding and industrial equipment with practical sourcing guidance in Vadodara, Gujarat. Start your GMT enquiry today.";
 
   return {
     metadataBase,
@@ -73,7 +73,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${bricolage.variable} ${instrument.variable} ${plexMono.variable}`}>
+    <html lang="en" className={`${bigShoulders.variable} ${workSans.variable} ${plexMono.variable}`}>
       <body>
         <a className="gmt-skip-link" href="#main">Skip to Content</a>
         <SmoothScroll>{children}</SmoothScroll>

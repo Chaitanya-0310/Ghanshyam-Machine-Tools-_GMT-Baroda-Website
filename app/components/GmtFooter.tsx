@@ -18,6 +18,10 @@ export function GmtFooter() {
             </svg>
           </Link>
           <p>Machine tools and industrial equipment sourcing for Vadodara and Gujarat.</p>
+          <div className="gmt-footer__business-note">
+            <span>Business context</span>
+            <p>Retailer and sourcing partner for the machine, tooling, accessories, and workholding around the job.</p>
+          </div>
         </div>
 
         <div className="gmt-footer__links">

@@ -5,12 +5,12 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
 
-const FRAME_COUNT = 300;
+const FRAME_COUNT = 240;
 const FRAME_WIDTH = 1280;
 const FRAME_HEIGHT = 720;
 const MEMORY_WINDOW = 52;
 const ASSEMBLY_COMPLETE_PROGRESS = 0.86;
-const PROTECTED_FRAMES = new Set([0, 74, 99, 150, 179, 224, 249, 274, 299]);
+const PROTECTED_FRAMES = new Set([0, 29, 59, 89, 119, 149, 179, 209, 239]);
 
 function frameUrl(index: number) {
   return `/chuck-assembly/ezgif-frame-${String(index + 1).padStart(3, "0")}.png`;
@@ -240,7 +240,7 @@ export function HeroProduct() {
           });
 
           timeline
-            .addLabel("exploded", 0)
+            .addLabel("assembledStart", 0)
             .to(playhead, { frame: 0, duration: 0.08, onUpdate: renderPlayhead })
             .to(playhead, {
               frame: FRAME_COUNT - 1,
@@ -252,7 +252,7 @@ export function HeroProduct() {
               duration: 0.14,
               onUpdate: renderPlayhead,
             })
-            .addLabel("assembled");
+            .addLabel("assembledEnd");
 
           ScrollTrigger.refresh();
         });
@@ -280,7 +280,7 @@ export function HeroProduct() {
       id="product-study"
       ref={root}
       className="gmt-product-study gmt-chuck--sequence"
-      aria-label="Exploded three-jaw chuck assembly"
+      aria-label="Three-jaw chuck assembly sequence"
     >
       <div ref={frame} className="gmt-product-study__frame">
         <canvas ref={canvas} className="gmt-chuck__canvas" aria-hidden="true" />

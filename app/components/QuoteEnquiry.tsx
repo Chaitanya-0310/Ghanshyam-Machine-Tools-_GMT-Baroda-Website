@@ -67,6 +67,18 @@ export function QuoteEnquiry() {
             <dd>Known make, model, budget, or compatibility needs.</dd>
           </div>
         </dl>
+
+        <div className="gmt-enquiry__checklist">
+          <span>Requirement checklist</span>
+          <ul>
+            <li>Application or operation</li>
+            <li>Material, workpiece, or size</li>
+            <li>Capacity or output context</li>
+            <li>Tooling and workholding</li>
+            <li>Compatibility or preferred make</li>
+            <li>Budget context</li>
+          </ul>
+        </div>
       </div>
 
       <form className="gmt-enquiry__form" onSubmit={prepareEnquiry} data-reveal>
@@ -127,6 +139,11 @@ export function QuoteEnquiry() {
           />
           <FieldDescription>Include any known make, model, capacity, or compatibility details.</FieldDescription>
         </Field>
+
+        <aside className="gmt-enquiry__guidance" aria-label="For a clearer enquiry">
+          <span>For a clearer enquiry</span>
+          <p>Share the application, workpiece or material, capacity, tooling, compatibility, preferred make or model, and budget context you already know.</p>
+        </aside>
 
         <div className="gmt-enquiry__footer">
           <p>This prepares an email for you to review before sending.</p>
